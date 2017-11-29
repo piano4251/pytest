@@ -16,19 +16,7 @@ result = cmds.ls( orderedSelection=True ) # create list in order of selection
 
 
 
-# str - convert contents to plain text
-
-# ie. result: [u'myCube2', u'playCube2'] - the transform and the orig cube - u: unicode
-
-#print 'result: ' + str(result)
-
 print 'result: %s' % ( result ) #same as above
-
-
-
-# DAG - Directed Ayclic Graph (view in Window -> Outliner to see cube object and shape node)
-
-# Duplicate cube by selecting in Outliner, then Edit -> Dup special (the box) then select instance/apply
 
 
 
@@ -36,7 +24,6 @@ transformName = result[0] # ie. result = ['myCube1', 'polyCube1'], so grab 'myCu
 
 
 
-# group cubes neatly together
 
 instanceGroupName = cmds.group( empty=True, name=transformName + '_instance_grp#' )
 
@@ -50,7 +37,6 @@ for i in range ( 0, 50 ):
 
     
 
-    # add each instance to our group above
 
     cmds.parent( instanceResult, instanceGroupName )
 
@@ -100,10 +86,3 @@ cmds.xform( instanceGroupName, centerPivots=True ) # Center the group pivot
 
 
 
-# to make sure all items are facing the center:
-
-# click Windows / selection/preferences / Selection text item, check 'Track Selection Order'
-
-
-
-# can create any type of object (sphere, pyramid, etc.) and run this script, still works!
